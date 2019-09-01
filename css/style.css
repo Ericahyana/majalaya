@@ -1,0 +1,124 @@
+<style>
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+	height:100%;
+	margin:0;
+	padding:0;
+    font-family: Georgia;
+    background: #f1f1f1;
+}
+
+/* Header/Blog Title */
+.header {
+    padding: 10px;
+    text-align: left;
+    background-color: #3b90ad;
+	color: white;
+}
+
+/* profil */
+.profil {
+    background: #f1f1f1;
+	padding-bottom: 30px;
+}
+
+.profil h3{
+    text-align: center;
+	color: white;
+	font-size: 25px;
+}
+
+.alert h4{
+	font-family: Ad Hoc;
+    text-align: center;
+	background-color: #3b90ad;
+	padding: 10px;
+	color: white;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix  p{
+    text-align: justify;
+}
+
+.img2 {
+    float: right;
+	padding-left: 10px;
+}
+
+/* Sidebar */
+.sidebar {
+	padding-bottom: 30px;
+	font-size:17px;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+.sidebar li a {
+    display: block;
+    color: #000;
+    padding: 10px;
+    text-decoration: none;
+	color: #3b90ad;
+}
+
+/* Change the link color on hover */
+.sidebar li a:hover {
+    background-color: #3b90ad;
+    color: white;
+}
+
+/* button */
+.login button .button{
+	background-color: #e7e7e7;
+    border: none;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+/* Pengajuan */
+.prg table {
+	border-collapse: collapse;
+    width: 100%;
+}
+
+.prg table th, td{
+	text-align: left;
+    padding: 8px;
+}
+
+.prg table tr:nth-child(even){
+	background-color: white;
+}
+
+.prg table th{
+	 background-color: #3b90ad;
+    color: white;
+}
+
+/* Footer */
+.footer {
+    padding: 10px;
+    text-align: left;
+    background-color: #3b90ad;
+	color: white;
+}
+
+</style>
