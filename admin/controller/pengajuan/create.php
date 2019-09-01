@@ -94,8 +94,12 @@ if ($_POST['id_jenis'] == 1) {
 	);
 }
 
+date_default_timezone_set("Asia/Jakarta");
 include "../../../class/pengajuan.php";
 $pengajuan = new pengajuan();
+
+include "../../../class/akun.php";
+$akun = new akun();
 
 include "../../../class/kelengkapan.php";
 $kelengkapan = new kelengkapan();
@@ -109,6 +113,14 @@ $pengajuan->tanggal_ambil = $_POST['tanggal_ambil'];
 $pengajuan->tanggal_masuk = date('Y-m-d');
 $pengajuan->progress = "Belum";
 $pengajuan->status = "Belum Diambil";
+
+	$peng = $pengajuan->getDetailJenis($_POST['id_jenis']);
+
+	$akun->id_user     	= $_SESSION['id_user'];
+	$akun->action 		= "Telah menambahkan ". $peng['nama_jenis'];
+	$akun->tgl_dibuat  = date('Y-m-d H:i:s');
+
+	$akun->create_histori();
 
 // Memasukan ke dalam detail kelengkapan
 foreach ($ceklis as $key ) {

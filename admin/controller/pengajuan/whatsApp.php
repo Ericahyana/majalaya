@@ -3,15 +3,27 @@ if (!isset($_SESSION)) {
 	session_start();
 }
 
+date_default_timezone_set("Asia/Jakarta");
+
 include "../../../class/pengajuan.php";
 $pengajuan = new pengajuan();
 
+include "../../../class/akun.php";
+$akun = new akun();
+
+
+
+
 if (!isset($_GET['NIK'])) {
 	foreach ($pengajuan->getDataSudahSelesai() as $key ) {
-		
+	$akun->id_user     	= $_SESSION['id_user'];
+	$akun->action 		= "Telah Mengirim WA ke NIK : ". $_GET['NIK'];
+	$akun->tgl_dibuat  = date('Y-m-d H:i:s');
+
+	$akun->create_histori();
 
 		$curl = curl_init();
-		$token = "Z1LrTBzdgE6VOX0TWBgpHPaEWnw6pGLvCtvKIvLm6SPmiBS4F2HXtZeuB9PZzXI9";
+		$token = "e9DfqP3N7f1KRJ8Q5eQFwEuqE1InIqst43NrrU0dNuy0bNYAHAPt1BsNtV6QhnTj";
 
 		curl_setopt($curl, CURLOPT_HTTPHEADER,
 			array(
@@ -32,16 +44,24 @@ if (!isset($_GET['NIK'])) {
 		$result = curl_exec($curl);
 		curl_close($curl);
 
-		echo "<pre>";
-		print_r($result);
+		echo '<script language="javascript">alert("WA Terikirm Ke : '.$key['no_wa'].' !"); document.location="../../index.php?page=tabelSudahSelesai";</script>';
+		// echo "<pre>";
+		// print_r($result);
 		$_SESSION['messageSuccess'] = "Info Telah Berhasil Dikirim";
 	}
+
 }else{
+
+	$akun->id_user     	= $_SESSION['id_user'];
+	$akun->action 		= "Telah Mengirim WA ke NIK : ". $_GET['NIK'];
+	$akun->tgl_dibuat  = date('Y-m-d H:i:s');
+
+	$akun->create_histori();
 	$data2 = $pengajuan->getDetail($_GET['NIK']);
 
 	$curl = curl_init();
 
-	$token = "Z1LrTBzdgE6VOX0TWBgpHPaEWnw6pGLvCtvKIvLm6SPmiBS4F2HXtZeuB9PZzXI9";
+	$token = "e9DfqP3N7f1KRJ8Q5eQFwEuqE1InIqst43NrrU0dNuy0bNYAHAPt1BsNtV6QhnTj";
 
 	curl_setopt($curl, CURLOPT_HTTPHEADER,
 		array(
@@ -63,12 +83,13 @@ if (!isset($_GET['NIK'])) {
 	$result = curl_exec($curl);
 	curl_close($curl);
 
-	echo "<pre>";
-	print_r($result);
+	// echo "<pre>";
+	// print_r($result);
+echo '<script language="javascript">alert("WA Terikirm Ke : '.$data2['no_wa'].'!"); document.location="../../index.php?page=tabelSudahSelesai";</script>';
 
 	die();
 	$_SESSION['messageSuccess'] = "Info Telah Berhasil Dikirim kepada ".$data2['nama_pemohon'];
+
 }
 
-header("location: ../../index.php?page=tabelSudahSelesai");
 ?>

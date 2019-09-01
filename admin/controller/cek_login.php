@@ -6,8 +6,8 @@
 	$akun->username     = $_POST['username'];
 	$akun->password 	= md5($_POST['password']);
 	
+
 	//menampung hasil dari method create
 	$error = $akun->cek_login();
-
 	
 	?>

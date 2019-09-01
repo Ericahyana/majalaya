@@ -1,18 +1,22 @@
 <?php 
-	include '../class/database.php';
-		
-	$nik=$_POST['NIK'];
-	$nama=$_POST['nama_pemohon'];
-	$permohonan=$_POST['jenis_permohonan'];
-	$alamat=$_POST['alamat'];
-	$tgl_masuk=$_POST['tanggal_masuk'];
-	$tgl_ambil=$_POST['tanggal_ambil'];
-	$progress=$_POST['progress'];
-	
-	
+session_start();
+date_default_timezone_set("Asia/Jakarta");
+include_once '../class/pengajuan.php';
+include "../class/akun.php";
 
-	mysql_query("update pengajuan set nama_pemohon='$nama', jenis_permohonan='$permohonan', alamat='$alamat', tanggal_masuk='$tgl_masuk', tanggal_ambil='$tgl_ambil', progress='$progress' where NIK='$nik'");
+$akun = new akun();
+$pengajuan = new pengajuan();
 
-	header("location:index.php?page=progress");
+$kode=$_GET['NIK'];
+$pengajuan->NIK=$kode;
+$pengajuan->updateProgress();
+
+
+	$akun->id_user     	= $_SESSION['id_user'];
+	$akun->action 		= "Telah Mengubah Status Nik : ". $kode ." Menjadi Sudah Selesai";
+	$akun->tgl_dibuat   = date('Y-m-d H:i:s');
+
+	$akun->create_histori();
+	header("location:index.php?page=tabelSudahSelesai");
 
 ?>

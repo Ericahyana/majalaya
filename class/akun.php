@@ -11,6 +11,9 @@ class akun {
 	public $password;
 	public $hak_akses;
 
+	public $id_user;
+	public $action;
+	public $tgl_dibuat;
 
 public function cek_login(){
 
@@ -76,8 +79,8 @@ public function cek_login(){
 					$_SESSION['status'] 	= "login";
 					$_SESSION['hak_akses']  = $hak_akses;
 					$_SESSION['log']		="Login";
-					
-					echo '<script language="javascript">alert("Anda berhasil Login!"); document.location="../../admin/index.php?page=progress";</script>';
+
+					echo '<script language="javascript">alert("Anda berhasil Login!"); document.location="../../admin/controller/cek_histori.php?id_user='.$id_user.'&action='.$username.' telah login ";</script>';
 					foreach ($pengajuan->getDataBelumSelesai() as $key ) {
 						$NIK = $key['NIK'];
 						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
@@ -92,9 +95,8 @@ public function cek_login(){
 			else{
 					session_start();
 					$error = $dbConnect->error;
-					$_SESSION['err'] = "<p><div class='alert alert-danger' role='alert'> username / password salah !! </div></p>";
-					//memanggil tampilan create kembali
-					header("location: ../view/login.php");
+
+					echo '<script language="javascript">alert("Username / Password Salah !"); document.location="../../index.php";</script>';
 				 }
 			
 		}
@@ -107,6 +109,15 @@ public function cek_login(){
 		$dbConnect = $db->close();
 		return $data;
 		}
+		public function getDataHistori() {
+		$db = new database();
+		$dbConnect = $db->connect();
+		$sql = "SELECT * FROM histori ";
+		$data = $dbConnect->query($sql);
+		$dbConnect = $db->close();
+		return $data;
+		}
+
 		public function getDetailUser($id) {
 		$db = new database();
 		$dbConnect = $db->connect();
@@ -115,6 +126,29 @@ public function cek_login(){
 		$dbConnect = $db->close();
 		return $data->fetch_assoc();
 	}
+	public function create_histori() {
+		$db = new Database();
+		$dbConnect = $db->connect();
+		
+		$sql = "INSERT INTO histori
+		(
+		id_user,
+		action,
+		tgl_dibuat
+		)
+		VALUES
+		(
+
+		'{$this->id_user}',
+		'{$this->action}',
+		'{$this->tgl_dibuat}'
+	)";
+	$data = $dbConnect->query($sql);
+	$error = $dbConnect->error;
+	$dbConnect = $db->close();
+	return $error;
+	}
+
 	public function create_akun() {
 		$db = new Database();
 		$dbConnect = $db->connect();

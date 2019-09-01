@@ -30,6 +30,34 @@ class pengajuan {
 		return $data;
 	}
 
+	public function getJumlahSudahDiambil($id) {
+		$db = new database();
+		$dbConnect = $db->connect();
+		$sql = "SELECT COUNT(*) as jml FROM pengajuan WHERE id_jenis ='{$id}' AND status = 'Diambil'";
+		$data = $dbConnect->query($sql);
+		$dbConnect = $db->close();
+		return $data->fetch_array();
+	}
+
+	public function getJumlahBelumSelesai($id) {
+		$db = new database();
+		$dbConnect = $db->connect();
+		$sql = "SELECT COUNT(*) as jml FROM pengajuan WHERE id_jenis ='{$id}' AND progress = 'Belum'";
+		$data = $dbConnect->query($sql);
+		$dbConnect = $db->close();
+		return $data->fetch_array();
+	}
+
+	public function getJumlahSudahSelesai($id) {
+		$db = new database();
+		$dbConnect = $db->connect();
+		$sql = "SELECT COUNT(*) as jml FROM pengajuan WHERE id_jenis ='{$id}' AND progress = 'Selesai'";
+		$data = $dbConnect->query($sql);
+		$dbConnect = $db->close();
+		return $data->fetch_array();
+	}
+
+
 	public function getDataBelumDiambil() {
 		$db = new database();
 		$dbConnect = $db->connect();

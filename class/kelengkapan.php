@@ -56,5 +56,30 @@ class kelengkapan {
 	return $error;
 }
 
-}
+public function delete_kelengkapan() {
+		$db = new Database();
+		$dbConnect = $db->connect();
+
+		$sql = "DELETE FROM kelengkapan WHERE NIK ='{$this->NIK}'";
+
+	$data = $dbConnect->query($sql);
+	$error = $dbConnect->error;
+	$dbConnect = $db->close();
+	return $error;
+	}
+
+
+public function delete_pengajuan() {
+		$db = new Database();
+		$dbConnect = $db->connect();
+
+		$sql = "DELETE FROM pengajuan WHERE NIK ='{$this->NIK}'";
+
+	$data = $dbConnect->query($sql);
+	$error = $dbConnect->error;
+	$dbConnect = $db->close();
+	return $error;
+	}
+
+}	
 ?>

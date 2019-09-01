@@ -36,7 +36,7 @@ $pengajuan = new pengajuan;
 					<td>
 						<a href="controller/pengajuan/whatsApp.php?NIK=<?php echo $data['NIK'] ?>" class="btn btn-success"><i class="fab fa-whatsapp"></i></a>
 						<button class="btn btn-info" data-toggle="modal" data-target="#myModalDetail" data-id="<?php echo $data['NIK'] ?>"><i class="fas fa-eye"></i></span></button>	
-						<a href="controller/pengajuan/updateDiambil.php?NIK=<?php echo $data['NIK'] ?>" class="btn btn-warning" onclick="javascript: return confirm('Anda yakin apakah berkas sudah di berikan?')"><i class="fas fa-check"></i></abutton>
+						<a href="controller/pengajuan/updateDiambil.php?NIK=<?php echo $data['NIK'] ?>" class="btn btn-warning" onclick="javascript: return confirm('Anda yakin apakah berkas sudah di berikan?')"><i class="fas fa-check"></i></a>
 						</td>
 					</tr>      
 				<?php endforeach; ?>

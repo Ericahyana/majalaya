@@ -79,7 +79,7 @@
 
 			</ul>
 			<ul class="nav navbar-nav navbar-right">
-				<li><a href="logout.php"><span class="glyphicon glyphicon-paper"></span> Histori</a></li>
+				<li><a  data-toggle="modal" data-target="#ModalHis"><span class="glyphicon glyphicon-paper"></span> Histori</a></li>
 				<li><a href="logout.php"><?= $_SESSION['hak_akses']?> &nbsp; <span class="glyphicon glyphicon-off"></span> Logout</a></li>
 			</ul>
 		</div>
@@ -179,7 +179,9 @@
 			};
 			if($page=="laporan") {				
 				include "laporan.php";	
-			};			
+			};	
+
+				include "modal_histori.php";	
 			?>
 		</div>	
 
