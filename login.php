@@ -10,6 +10,9 @@ $password = md5($_POST['password']);
 $login = mysql_query("select * from user where username='$username' and password='$password'");
 $cek = mysql_num_rows($login);
 
+$login = $dbConnect->query($login);
+$data = $login->fetch_assoc();
+
 // Setting Progress Otomatis
 if($cek > 0) {
 	session_start();
@@ -25,7 +28,10 @@ if($cek > 0) {
 		}
 	}
 // End Setting Progress Otomatis
-echo '<script language="javascript">alert("Anda berhasil Login!"); document.location="admin/index.php";</script>';
+
+
+echo '<script language="javascript">alert("Anda berhasil Login!"); document.location="admin/index.php?page=progress";</script>';
+
 }else{
 //	echo '<script language="javascript">alert("Maaf Anda Salah memasukkan Username atau Password!"); document.location="index.php";</script>';
 }

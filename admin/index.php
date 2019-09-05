@@ -54,6 +54,9 @@
 			<ul class="nav navbar-nav">
 
 			<?php if($_SESSION['hak_akses']=="pelayanan"){?>
+				<li class="<?php if ($page=='kelola_user'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=kelola_user">Kelola User</a></li>
 				<li class="<?php if ($page=='progress'): ?>
 				active
 				<?php endif ?>"><a href="index.php?page=progress">Pengajuan</a></li>
@@ -70,11 +73,7 @@
 				<li class="<?php if ($page=='laporan'): ?>
 				active
 				<?php endif ?>"><a href="index.php?page=laporan">Laporan</a></li>
-			<?php }else if($_SESSION['hak_akses']=="admin"){?>
-
-				<li class="<?php if ($page=='kelola_user'): ?>
-				active
-				<?php endif ?>"><a href="index.php?page=kelola_user">Kelola User</a></li>
+				
 			<?php }?>
 
 			</ul>

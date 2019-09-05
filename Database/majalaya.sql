@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: 01 Sep 2019 pada 10.35
+-- Generation Time: 05 Sep 2019 pada 14.59
 -- Versi Server: 10.1.19-MariaDB
 -- PHP Version: 5.6.24
 
@@ -61,7 +61,25 @@ INSERT INTO `histori` (`id_histori`, `id_user`, `action`, `tgl_dibuat`) VALUES
 (22, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-01 14:52:36'),
 (23, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-01 15:28:11'),
 (24, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-01 15:29:16'),
-(25, 3, ' Telah Logout', '2019-09-01 15:31:59');
+(25, 3, ' Telah Logout', '2019-09-01 15:31:59'),
+(26, 3, 'pelayanan telah login', '2019-09-02 09:00:41'),
+(27, 3, 'Telah Mengubah Status Nik : 160613024 Menjadi Sudah Selesai', '2019-09-02 09:07:09'),
+(28, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-02 09:07:16'),
+(29, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-02 09:09:40'),
+(30, 3, 'pelayanan telah login', '2019-09-02 09:28:33'),
+(31, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-02 09:28:42'),
+(32, 3, 'Telah Mengirim WA ke NIK : 160613024', '2019-09-02 09:29:13'),
+(33, 3, 'Telah menambahkan PEMBUATAN SURAT KETERANGAN TIDAK MAMPU', '2019-09-02 15:20:55'),
+(34, 3, 'Telah Mengubah Status Nik : 12334543634 Menjadi Sudah Selesai', '2019-09-02 15:22:13'),
+(35, 3, 'Telah Mengubah Status NIK : 12334543634 Menjadi Sudah Diambil', '2019-09-02 15:23:25'),
+(36, 3, ' Telah Logout', '2019-09-02 15:23:44'),
+(37, 2, ' Telah Logout', '2019-09-02 15:25:08'),
+(38, 1, ' Telah Logout', '2019-09-02 15:28:40'),
+(39, 2, ' Telah Logout', '2019-09-02 17:56:37'),
+(40, 2, ' Telah Logout', '2019-09-02 17:57:51'),
+(41, 1, ' Telah Logout', '2019-09-02 19:08:59'),
+(42, 2, ' Telah Logout', '2019-09-04 20:48:55'),
+(43, 3, 'pelayanan telah login', '2019-09-04 20:49:07');
 
 -- --------------------------------------------------------
 
@@ -126,7 +144,10 @@ INSERT INTO `kelengkapan` (`id_dokumen`, `NIK`, `keterangan`, `foto`) VALUES
 (52, 160613024, 'Surat Pengantar', '160613024Surat_Pengantar.jpeg'),
 (53, 160613024, 'Foto Copy Surat Nikah', '160613024Foto_Copy_Surat_Nikah.jpeg'),
 (54, 160613024, 'Surat Pindah', '160613024Surat_Pindah.jpg'),
-(55, 160613024, 'Foto Copy Akte Kelahiran', '160613024Foto_Copy_Akte_Kelahiran.jpg');
+(55, 160613024, 'Foto Copy Akte Kelahiran', '160613024Foto_Copy_Akte_Kelahiran.jpg'),
+(56, 2147483647, 'Surat Pengantar', '12334543634Surat_Pengantar.png'),
+(57, 2147483647, 'KK', '12334543634KK.png'),
+(58, 2147483647, 'KTP', '12334543634KTP.png');
 
 -- --------------------------------------------------------
 
@@ -152,6 +173,7 @@ CREATE TABLE `pengajuan` (
 
 INSERT INTO `pengajuan` (`NIK`, `nama_pemohon`, `no_wa`, `alamat`, `id_jenis`, `tanggal_masuk`, `tanggal_ambil`, `progress`, `status`) VALUES
 (160613024, 'Chandra Ramdhan Purnama', '08986897962', 'Jl. asdasd', 1, '2018-12-12', '2019-01-22', 'Selesai', 'Belum Diambil'),
+(12334543634, 'asdccccc', '08986897962', 'comahi', 11, '2019-09-02', '2019-09-02', 'Selesai', 'Diambil'),
 (12213213213123, 'asdasdasd', '123123123', 'asdasdads', 1, '2019-01-11', '0000-00-00', 'Selesai', 'Diambil'),
 (3204330306450005, 'Tedi Ruhyana', '083821896126', 'Kp. Saparako Rt 04 Rw 01', 1, '2018-06-18', '2018-06-19', 'Selesai', 'Diambil'),
 (3204331705980002, 'Daffa Al Fariz', '', 'Kp. Sukaesih Rt 01 Rw 10', 2, '2019-01-01', '2019-01-08', 'Selesai', 'Diambil'),
@@ -184,7 +206,8 @@ INSERT INTO `user` (`id`, `nama`, `username`, `password`, `hak_akses`) VALUES
 (1, 'admin', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
 (2, 'camat', 'camat', '21232f297a57a5a743894a0e4a801fc3', 'camat'),
 (3, 'Sumanto', 'pelayanan', '21232f297a57a5a743894a0e4a801fc3', 'pelayanan'),
-(4, 'eri', 'ericahyana', '202cb962ac59075b964b07152d234b70', 'pelayanan');
+(4, 'eri', 'ericahyana', '202cb962ac59075b964b07152d234b70', 'pelayanan'),
+(5, 'Surmini', 'sur', '202cb962ac59075b964b07152d234b70', 'pelayanan');
 
 --
 -- Indexes for dumped tables
@@ -230,7 +253,7 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT for table `histori`
 --
 ALTER TABLE `histori`
-  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `id_histori` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 --
 -- AUTO_INCREMENT for table `jenis`
 --
@@ -240,12 +263,12 @@ ALTER TABLE `jenis`
 -- AUTO_INCREMENT for table `kelengkapan`
 --
 ALTER TABLE `kelengkapan`
-  MODIFY `id_dokumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=60;
+  MODIFY `id_dokumen` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 --
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` int(2) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

@@ -112,7 +112,7 @@ public function cek_login(){
 		public function getDataHistori() {
 		$db = new database();
 		$dbConnect = $db->connect();
-		$sql = "SELECT * FROM histori ";
+		$sql = "SELECT * FROM histori  order by tgl_dibuat DESC";
 		$data = $dbConnect->query($sql);
 		$dbConnect = $db->close();
 		return $data;
