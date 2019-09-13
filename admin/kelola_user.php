@@ -29,6 +29,7 @@ if(isset($_GET['id'])){
 					<div class="caption" style="color:grey; text-align:center;">
 						<?php if(isset($_GET['id'])){?>
 						<h4 style="color:#3b90ad;">Edit User</h4><br>
+
 						<form action="controller/user/update.php" method="post">
 						<table class="table">
 							<tr>
@@ -104,6 +105,7 @@ if(isset($_GET['id'])){
 			<div class="col-md-9">
 				<div class="thumbnail">
 					<div class="caption" style="color:grey; text-align:left;">
+						<div style="overflow-y: scroll;">
 						<table id="tabPengajuan" width="800px">
 						<thead>
 							<tr>        
@@ -137,6 +139,7 @@ if(isset($_GET['id'])){
 						</tbody>
 					</table>
 					</div>
+				  </div>
 				</div>
 			</div>
 			</div>
