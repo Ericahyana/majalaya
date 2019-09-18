@@ -33,7 +33,7 @@ page[size="A4"] {
 }
 page[size="A4"][layout="landscape"] {
 	width: 29.7cm;
-	height: 21cm;  
+	height: 14cm;  
 }
 page[size="A3"] {
 	width: 29.7cm;
@@ -100,6 +100,10 @@ $tanggal_masuk = str_replace("-","/",$data['tanggal_masuk']);
 			<tr></tr>
 			<tr></tr>
 			<tr>
+				<td><b>NO RESI</b></td>
+				<td>: <?php echo $data['no_resi'] ?></td>
+			</tr>
+			<tr>
 				<td><b>JENIS PERMOHONAN</b></td>
 				<td>: <?php echo $data['nama_jenis'] ?></td>
 			</tr>
@@ -141,9 +145,7 @@ $tanggal_masuk = str_replace("-","/",$data['tanggal_masuk']);
 	</div>
 </page>
 <script type="text/javascript">
-
 	$(document).ready(function () {
 		window.print();
 	});
-
 </script>

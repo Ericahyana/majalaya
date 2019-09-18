@@ -42,10 +42,22 @@ public function cek_login(){
 					foreach ($pengajuan->getDataBelumSelesai() as $key ) {
 						$NIK = $key['NIK'];
 						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
+						$tgl2 = date('Y-m-d', strtotime('+3 days', strtotime($tgl1))); 
+						//operasi penjumlahan tanggal sebanyak 6 hari
+						if ($tgl2 <= date('Y-m-d')) {
+							$pengajuan->NIK = $NIK;
+							$pengajuan->Progress = "Proses";
+							$error = $pengajuan->updateProgress();
+						}
+					}
+					foreach ($pengajuan->getDataProses() as $key ) {
+						$NIK = $key['NIK'];
+						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
 						$tgl2 = date('Y-m-d', strtotime('+7 days', strtotime($tgl1))); 
 						//operasi penjumlahan tanggal sebanyak 6 hari
 						if ($tgl2 <= date('Y-m-d')) {
 							$pengajuan->NIK = $NIK;
+							$pengajuan->Progress = "Selesi";
 							$error = $pengajuan->updateProgress();
 						}
 					}
@@ -63,10 +75,22 @@ public function cek_login(){
 					foreach ($pengajuan->getDataBelumSelesai() as $key ) {
 						$NIK = $key['NIK'];
 						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
+						$tgl2 = date('Y-m-d', strtotime('+3 days', strtotime($tgl1))); 
+						//operasi penjumlahan tanggal sebanyak 6 hari
+						if ($tgl2 <= date('Y-m-d')) {
+							$pengajuan->NIK = $NIK;
+							$pengajuan->Progress = "Proses";
+							$error = $pengajuan->updateProgress();
+						}
+					}
+					foreach ($pengajuan->getDataProses() as $key ) {
+						$NIK = $key['NIK'];
+						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
 						$tgl2 = date('Y-m-d', strtotime('+7 days', strtotime($tgl1))); 
 						//operasi penjumlahan tanggal sebanyak 6 hari
 						if ($tgl2 <= date('Y-m-d')) {
 							$pengajuan->NIK = $NIK;
+							$pengajuan->Progress = "Selesi";
 							$error = $pengajuan->updateProgress();
 						}
 					}
@@ -84,10 +108,22 @@ public function cek_login(){
 					foreach ($pengajuan->getDataBelumSelesai() as $key ) {
 						$NIK = $key['NIK'];
 						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
+						$tgl2 = date('Y-m-d', strtotime('+3 days', strtotime($tgl1))); 
+						//operasi penjumlahan tanggal sebanyak 6 hari
+						if ($tgl2 <= date('Y-m-d')) {
+							$pengajuan->NIK = $NIK;
+							$pengajuan->Progress = "Proses";
+							$error = $pengajuan->updateProgress();
+						}
+					}
+					foreach ($pengajuan->getDataProses() as $key ) {
+						$NIK = $key['NIK'];
+						$tgl1 = $key['tanggal_masuk'];// pendefinisian tanggal awal
 						$tgl2 = date('Y-m-d', strtotime('+7 days', strtotime($tgl1))); 
 						//operasi penjumlahan tanggal sebanyak 6 hari
 						if ($tgl2 <= date('Y-m-d')) {
 							$pengajuan->NIK = $NIK;
+							$pengajuan->Progress = "Selesi";
 							$error = $pengajuan->updateProgress();
 						}
 					}

@@ -25,16 +25,13 @@
 <body>
 
 	<?php
-	include '../config.php';
-	
 	session_start();
 	
 	if($_SESSION['status'] !="login") {
 		header("location:../index.php");
 	}
-	?>
-
-	<?php
+?>
+<?php	
 	include "../class/pengajuan.php";
 	include "../class/akun.php";
 	$akun = new akun();	
@@ -63,6 +60,9 @@
 				<li class="<?php if ($page=='tabelSudahSelesai'): ?>
 				active
 				<?php endif ?>"><a href="index.php?page=tabelSudahSelesai">Daftar Pengajuan Sudah Selesai</a></li>
+				<li class="<?php if ($page=='tabelProses'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=tabelProses">Daftar Pengajuan Sedang Diproses</a></li>
 				<li class="<?php if ($page=='tabelBelumSelesai'): ?>
 				active
 				<?php endif ?>"><a href="index.php?page=tabelBelumSelesai">Daftar Pengajuan Belum Selesai</a></li>
@@ -74,6 +74,24 @@
 				<li class="<?php if ($page=='kelola_user'): ?>
 				active
 				<?php endif ?>"><a href="index.php?page=kelola_user">Kelola User</a></li>
+				<li class="<?php if ($page=='laporan'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=laporan">Laporan</a></li>
+				<li class="<?php if ($page=='progress'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=progress">Pengajuan</a></li>
+				<li class="<?php if ($page=='tabelSudahDiambil'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=tabelSudahDiambil">Daftar Pengajuan Sudah di Ambil</a></li>
+				<li class="<?php if ($page=='tabelSudahSelesai'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=tabelSudahSelesai">Daftar Pengajuan Sudah Selesai</a></li>
+				<li class="<?php if ($page=='tabelProses'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=tabelProses">Daftar Pengajuan Sedang Diproses</a></li>
+				<li class="<?php if ($page=='tabelBelumSelesai'): ?>
+				active
+				<?php endif ?>"><a href="index.php?page=tabelBelumSelesai">Daftar Pengajuan Belum Selesai</a></li>
 				
 			<?php }?>
 
@@ -126,6 +144,10 @@
 
 			if($page=="tabelBelumSelesai") {				
 				include "tabelBelumSelesai.php";	
+			};
+
+			if($page=="tabelProses") {				
+				include "tabelProses.php";	
 			};
 
 			if($page=="tabelSudahSelesai") {				

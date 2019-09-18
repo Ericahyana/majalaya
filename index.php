@@ -9,7 +9,8 @@
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
 	<link rel="icon" type="iamge/png" href="image/bandung.png">
-	
+	<!-- Stepper CSS -->
+	<link href="css/steppers.css" rel="stylesheet">
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="DataTables/datatables.min.js"></script>

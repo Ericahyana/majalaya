@@ -5,7 +5,7 @@ $pengajuan = new pengajuan;
 
 <div class="row" >
 	<div class="col-md-12">
-		<h4 style="font-family: Ad Hoc; text-align: center; background-color: #3b90ad; padding: 10px; color: white;">DAFTAR Pengajuan Belum Selesai </h4>
+		<h4 style="font-family: Ad Hoc; text-align: center; background-color: #3b90ad; padding: 10px; color: white;">DAFTAR PengajuanSedang Diproses </h4>
 	</div>
 </div>
 
@@ -24,7 +24,7 @@ $pengajuan = new pengajuan;
 			</tr>
 		</thead>
 		<tbody>
-			<?php foreach($pengajuan->getDataBelumSelesai() as $data) : ?>
+			<?php foreach($pengajuan->getDataProses() as $data) : ?>
 				<tr>				
 					<td><?php echo $data['NIK'] ?></td>
 					<td><?php echo $data['nama_pemohon'] ?></td>
@@ -34,10 +34,8 @@ $pengajuan = new pengajuan;
 					<td><?php echo $data['tanggal_masuk'] ?></td>
 					<td><?php echo $data['tanggal_ambil'] ?></td>
 					<td>
-						<a href="update.php?NIK=<?php echo $data['NIK'] ?>&Progress=Proses" class="btn btn-success" onclick="javascript: return confirm('Anda yakin apakah berkas sudah di Proses?')"><i class="fas fa-check"></i></a>
-						<a href="form/modalPrint.php?NIK=<?php echo $data['NIK'] ?>" target="_blank" class="btn btn-warning"><i class="fas fa-print"></i></a>
+						<a href="update.php?NIK=<?php echo $data['NIK'] ?>&Progress=Selesai" class="btn btn-success" onclick="javascript: return confirm('Anda yakin apakah berkas sudah di Selesai?')"><i class="fas fa-check"></i></a>
 						<button class="btn btn-info" data-toggle="modal" data-target="#myModalDetail" data-id="<?php echo $data['NIK'] ?>"><i class="fas fa-eye"></i></span></button>					
-						<a onclick="if(confirm('Anda Yakin?')){ location.href='hapus.php?NIK=<?php echo $data['NIK']; ?>' }" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
 					</td>
 				</tr>      
 			<?php endforeach; ?>

@@ -1,7 +1,7 @@
 <?php
 $curl = curl_init();
 
-$token = "smu1HeM5lIPPfZfu6cJHciKGT2e6CsiAh9BB2PPe6PAIdTgIJbcJ6hmjdl5UA6jR";
+$token = "CdikwwsaTZebkSVvKj0dR3Av2G46g5bDZGUfxFMM4r82JZNDyndKVgDkJyvit6CU";
 
 curl_setopt($curl, CURLOPT_HTTPHEADER,
     array(

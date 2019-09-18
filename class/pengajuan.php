@@ -3,6 +3,7 @@ include_once "database.php";
 
 class pengajuan {
 	public $NIK;
+	public $no_resi;
 	public $nama_pemohon;
 	public $no_wa;
 	public $alamat;
@@ -67,6 +68,15 @@ class pengajuan {
 		return $data;
 	}
 
+	public function getDataProses() {
+		$db = new database();
+		$dbConnect = $db->connect();
+		$sql = "SELECT * FROM pengajuan join jenis on pengajuan.id_jenis = jenis.id_jenis where pengajuan.progress ='Proses'";
+		$data = $dbConnect->query($sql);
+		$dbConnect = $db->close();
+		return $data;
+	}
+
 	public function getDataBelumSelesai() {
 		$db = new database();
 		$dbConnect = $db->connect();
@@ -101,6 +111,15 @@ class pengajuan {
 		$data = $dbConnect->query($sql);
 		$dbConnect = $db->close();
 		return $data->fetch_array();
+	}			
+
+	public function getDetailResi($kode) {
+		$db = new database();
+		$dbConnect = $db->connect();
+		$sql = "SELECT * from pengajuan  where no_resi='$kode'";
+		$data = $dbConnect->query($sql);
+		$dbConnect = $db->close();
+		return $data->fetch_array();
 	}
 
 	public function getDetailJenis($id_jenis) {
@@ -124,10 +143,11 @@ class pengajuan {
 	public function create() {
 		$db = new Database();
 		$dbConnect = $db->connect();
-		
+		$no_resi =rand(100000,999999);
 		$sql = "INSERT INTO pengajuan
 		(
 		NIK,
+		no_resi,
 		nama_pemohon,
 		no_wa,
 		alamat,
@@ -140,6 +160,7 @@ class pengajuan {
 		VALUES
 		(
 		'{$this->NIK}',
+		'{$no_resi}',
 		'{$this->nama_pemohon}',
 		'{$this->no_wa}',
 		'{$this->alamat}',
@@ -162,7 +183,7 @@ public function updateProgress() {
 				//query menyimpan data 
 		$sql = "UPDATE pengajuan
 		set	
-		progress='Selesai'
+		progress='{$this->progress}'
 		where NIK='{$this->NIK}'
 		";
 				//eksekusi query di atas

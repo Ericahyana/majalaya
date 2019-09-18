@@ -9,14 +9,26 @@ $pengajuan = new pengajuan();
 
 $kode=$_GET['NIK'];
 $pengajuan->NIK=$kode;
-$pengajuan->updateProgress();
+$pengajuan->progress=$_GET['Progress'];
 
+if($_GET['Progress']=="Proses"){
+
+	$akun->id_user     	= $_SESSION['id_user'];
+	$akun->action 		= "Telah Mengubah Status Nik : ". $kode ." Menjadi Sedang Diproses";
+	$akun->tgl_dibuat   = date('Y-m-d H:i:s');
+
+	$akun->create_histori();
+	$pengajuan->updateProgress();
+	header("location:index.php?page=tabelProses");
+}else{
 
 	$akun->id_user     	= $_SESSION['id_user'];
 	$akun->action 		= "Telah Mengubah Status Nik : ". $kode ." Menjadi Sudah Selesai";
 	$akun->tgl_dibuat   = date('Y-m-d H:i:s');
 
 	$akun->create_histori();
+	$pengajuan->updateProgress();
 	header("location:index.php?page=tabelSudahSelesai");
+}
 
 ?>

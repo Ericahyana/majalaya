@@ -23,7 +23,7 @@ if (!isset($_GET['NIK'])) {
 	$akun->create_histori();
 
 		$curl = curl_init();
-		$token = "e9DfqP3N7f1KRJ8Q5eQFwEuqE1InIqst43NrrU0dNuy0bNYAHAPt1BsNtV6QhnTj";
+		$token = "CdikwwsaTZebkSVvKj0dR3Av2G46g5bDZGUfxFMM4r82JZNDyndKVgDkJyvit6CU";
 
 		curl_setopt($curl, CURLOPT_HTTPHEADER,
 			array(
@@ -61,7 +61,7 @@ if (!isset($_GET['NIK'])) {
 
 	$curl = curl_init();
 
-	$token = "e9DfqP3N7f1KRJ8Q5eQFwEuqE1InIqst43NrrU0dNuy0bNYAHAPt1BsNtV6QhnTj";
+	$token = "CdikwwsaTZebkSVvKj0dR3Av2G46g5bDZGUfxFMM4r82JZNDyndKVgDkJyvit6CU";
 
 	curl_setopt($curl, CURLOPT_HTTPHEADER,
 		array(

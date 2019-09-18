@@ -108,14 +108,14 @@ if ($_POST['rowid'] == 1) {
 				<div class="form-group">
 					<div class="form-group">
 						<label>Tanggal Masuk</label>
-						<input name="tanggal_masuk" type="text" class="form-control" value="<?php echo date('m/d/Y'); ?>"  readonly="">
+						<input name="tanggal_masuk" type="date" class="form-control" value="<?php echo date('Y-m-d'); ?>"  readonly="">
 					</div>
 					<div class="form-group">
 						<label>Tanggal Ambil</label>
-						<input name="tanggal_ambil" type="date" class="form-control" placeholder="" required="">
+						<input name="tanggal_ambil" type="date" class="form-control" placeholder="" required="" readonly="" value="<?= date('Y-m-d', strtotime('+7 days', strtotime(date("Y-m-d")))); ?>">
 					</div>
 					<label>NIK</label>
-					<input name="NIK" type="text" class="form-control" placeholder="" required="">
+					<input name="NIK" type="text" class="form-control" placeholder="" required="" size="16" maxlength="16" minlength="16" >
 				</div>
 				<div class="form-group">
 					<label>Nama Pemohon</label>
